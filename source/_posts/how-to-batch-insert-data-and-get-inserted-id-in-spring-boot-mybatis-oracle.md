@@ -123,6 +123,7 @@ Flush注解的作用是在BATCH模式下，调用注解了Flush的mapper方法�
 所以一般来说循环结束时最后调用flush即可。当然也可以根据记录数批量flush。
 
 # 6. 参考代码：
+* 源码地址：https://github.com/ostinatos/prometheus-spring-mybatis
 * 数据库使用的是oracle XE(express edition)，用到的用户是testuser/oracle
 用到的表是：
 ```sql
@@ -142,6 +143,7 @@ increment by 1
 cache 20;
 ```
 
+* 需要额外使用oracle jdbc driver，下载一个加到项目classpath即可
 * spring boot的入口程序
 mount.olympus.prometheus.Application
 run as java application即可。
