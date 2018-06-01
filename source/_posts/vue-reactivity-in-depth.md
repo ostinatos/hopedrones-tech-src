@@ -1,11 +1,11 @@
 title: 深入vue的响应式实现
 date: 2018-04-06 20:38:22
-tags: [vue, frontend, reactivity, javascript, framework, 前端]
+tags: [vue, frontend, reactivity, javascript, framework, 前端, 响应式]
 ---
 
 
 
-使用vue有一段时间，对于响应式（reactivity）这个特性，自然也是踩过不少坑，自然就想了解一下vue源码中是如何实现的，以求更好的理解和使用这个框架。
+使用vue有一段时间，对于响应式（reactivity）这个特性，也是踩过不少坑，自然就想了解一下vue源码中是如何实现的，以求更好的理解和使用这个框架。
 
 在google上搜到了一篇很好的文章，通俗易懂的讲清楚了vue源码中关于响应式的核心实现代码原理。文章在此：
 
@@ -15,7 +15,7 @@ tags: [vue, frontend, reactivity, javascript, framework, 前端]
 
 https://github.com/ostinatos/reactivity-prototype
 
-这篇文章也就简单总结一下实现这个原型的关键点，以及写了这个圆形后本人对vue中提及的响应式的“坑”的一些理解。
+这篇文章也就简单总结一下实现这个原型的关键点，以及写了这个原型后本人对vue中提及的响应式的“坑”的一些理解。
 
 # 实现vue的响应式原型的关键点
 

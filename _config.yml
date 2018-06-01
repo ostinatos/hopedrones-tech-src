@@ -7,7 +7,7 @@ title: Hope Drones - Tech
 subtitle:
 description:
 author: Revlekt
-language:
+language: zh-CN
 timezone:
 avatar: http://7xn9mp.com1.z0.glb.clouddn.com/avatar-sotl.jpg
 
@@ -41,7 +41,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: true
+  auto_detect: false
   tab_replace:
 
 # Category & Tag
