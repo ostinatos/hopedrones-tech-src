@@ -296,3 +296,12 @@ import('./xxx.js').then()
 
     package.json 设置入口为es module 标准的js。可以通过指定main或者module字段都可以
 
+# 完整参考代码
+
+模块代码参考：
+
+https://github.com/ostinatos/js-playground/tree/master/packages/async-dep-module-demo
+
+宿主应用参考：
+
+https://github.com/ostinatos/js-playground/tree/master/packages/module-host-demo
