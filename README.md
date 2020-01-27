@@ -1,9 +1,16 @@
 # Usage guide
 
-## write new post
+## write new draft post
 ```
-hexo new "post-title"
+hexo new draft "post-title"
 ```
+
+## publish draft
+
+```
+hexo publish "post-title"
+```
+
 ## preview locally
 ```
 hexo server
