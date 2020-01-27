@@ -196,7 +196,9 @@ __webpack_require__.e = function requireEnsure(chunkId) {
 
 ## rollup
 
-rollup 和 webpack的最大不同之处在于，rollup支持打包为es module（esm）格式的js。
+rollup 和 webpack的最大不同之处在于，rollup更适合于用来打包js库[2]。
+
+rollup可以支持将js库打包为es module（esm）格式的js。
 
 下面我们来试试使用rollup来打包我们的js库。
 
@@ -288,13 +290,19 @@ import('./xxx.js').then()
 
 - 不能使用webpack打包js库
     
-    因为webpack不支持输出es module标准的js
+    因为使用webpack打包js库时，**对于需要懒加载的资源，webpack是直接生成了动态拼接script标签的代码**，而对于library来说，这样的代码对于宿主应用的使用是很麻烦的
 
-- 使用rollup打包为esm标准的模块
+- 使用rollup打包js库（js library）
+
+    使用rollup打包js library的好处是，对于library中需要懒加载的资源，rollup编译为了异步加载chunk的代码，而且用的不是动态拼接script标签的方式，这样有助于宿主应用使用js library时进行分割。
 
 - 设置正确的模块入口
 
     package.json 设置入口为es module 标准的js。可以通过指定main或者module字段都可以
+
+- 宿主应用可以正常使用webpack来编译使用js库的代码
+
+    从实践结果来看，宿主应用使用webpack编译，能够正确的解析出js库中的异步加载依赖，并将其作为宿主应用的分割文件进行异步懒加载，有效提升加载性能
 
 # 完整参考代码
 
@@ -305,3 +313,13 @@ https://github.com/ostinatos/js-playground/tree/master/packages/async-dep-module
 宿主应用参考：
 
 https://github.com/ostinatos/js-playground/tree/master/packages/module-host-demo
+
+# 参考资料
+
+[1] [Code-splitting for libraries—bundling for npm with Rollup 1.0](https://levelup.gitconnected.com/code-splitting-for-libraries-bundling-for-npm-with-rollup-1-0-2522c7437697)
+
+讲解如何使用rollup打包出能按需使用的npm模块
+
+[2] [Webpack and Rollup: the same but different](https://medium.com/webpack/webpack-and-rollup-the-same-but-different-a41ad427058c)
+
+比较了webpack和rollup的不同，以及何时该使用哪一个
